@@ -13,6 +13,9 @@
 		A932383A1EFD535D005D6D79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93238381EFD535D005D6D79 /* Main.storyboard */; };
 		A932383C1EFD535D005D6D79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A932383B1EFD535D005D6D79 /* Assets.xcassets */; };
 		A932383F1EFD535D005D6D79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A932383D1EFD535D005D6D79 /* LaunchScreen.storyboard */; };
+		A9B7A0E21EFD579C00CB5A87 /* CreateProgramController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7A0E11EFD579C00CB5A87 /* CreateProgramController.swift */; };
+		A9B7A0E51EFD5E8500CB5A87 /* ProgramData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7A0E31EFD5E8500CB5A87 /* ProgramData.swift */; };
+		A9B7A0E61EFD5E8500CB5A87 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7A0E41EFD5E8500CB5A87 /* Restaurant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		A932383B1EFD535D005D6D79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A932383E1EFD535D005D6D79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A93238401EFD535D005D6D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9B7A0E11EFD579C00CB5A87 /* CreateProgramController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProgramController.swift; sourceTree = "<group>"; };
+		A9B7A0E31EFD5E8500CB5A87 /* ProgramData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramData.swift; sourceTree = "<group>"; };
+		A9B7A0E41EFD5E8500CB5A87 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		C56FF655FF404F12146D56DE /* Pods_Stammtisch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stammtisch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E709FF47DA812A86A58231F2 /* Pods-Stammtisch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stammtisch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stammtisch/Pods-Stammtisch.debug.xcconfig"; sourceTree = "<group>"; };
 		E91B6394A1F3F996A47F6E04 /* Pods-Stammtisch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stammtisch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stammtisch/Pods-Stammtisch.release.xcconfig"; sourceTree = "<group>"; };
@@ -71,10 +77,13 @@
 			children = (
 				A93238341EFD535D005D6D79 /* AppDelegate.swift */,
 				A93238361EFD535D005D6D79 /* ViewController.swift */,
+				A9B7A0E11EFD579C00CB5A87 /* CreateProgramController.swift */,
 				A93238381EFD535D005D6D79 /* Main.storyboard */,
 				A932383B1EFD535D005D6D79 /* Assets.xcassets */,
 				A932383D1EFD535D005D6D79 /* LaunchScreen.storyboard */,
 				A93238401EFD535D005D6D79 /* Info.plist */,
+				A9B7A0E31EFD5E8500CB5A87 /* ProgramData.swift */,
+				A9B7A0E41EFD5E8500CB5A87 /* Restaurant.swift */,
 			);
 			path = Stammtisch;
 			sourceTree = "<group>";
@@ -212,7 +221,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9B7A0E61EFD5E8500CB5A87 /* Restaurant.swift in Sources */,
+				A9B7A0E21EFD579C00CB5A87 /* CreateProgramController.swift in Sources */,
 				A93238371EFD535D005D6D79 /* ViewController.swift in Sources */,
+				A9B7A0E51EFD5E8500CB5A87 /* ProgramData.swift in Sources */,
 				A93238351EFD535D005D6D79 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +391,7 @@
 				A93238451EFD535D005D6D79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
