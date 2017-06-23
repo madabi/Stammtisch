@@ -26,7 +26,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
         
         cell.textLabel?.text = program.restaurants[indexPath.row].name
-        print(program.restaurants[indexPath.row].name)
+        //print(program.restaurants[indexPath.row].name)
         print(program.groupName)
         return(cell)
     }

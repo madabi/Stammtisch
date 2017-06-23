@@ -1,9 +1,9 @@
 //
 //  Restaurant.swift
-//  DinnerPlanner
+//  Stammtisch
 //
-//  Created by Lea Boesch on 18.06.17.
-//  Copyright © 2017 DinnerPlanner. All rights reserved.
+//  Created by Lea Boesch on 23.06.17.
+//  Copyright © 2017 Stammtisch. All rights reserved.
 //
 
 import Foundation
@@ -21,7 +21,5 @@ class Restaurant {
     var photo_url: String! = nil
     var location_lat: Double! = nil
     var location_long: Double! = nil
-   
     
 }
-

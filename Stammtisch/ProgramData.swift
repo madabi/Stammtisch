@@ -1,12 +1,13 @@
 //
 //  ProgramData.swift
-//  DinnerPlanner
+//  Stammtisch
 //
-//  Created by Lea Boesch on 18.06.17.
-//  Copyright © 2017 DinnerPlanner. All rights reserved.
+//  Created by Lea Boesch on 23.06.17.
+//  Copyright © 2017 Stammtisch. All rights reserved.
 //
 
 import Foundation
+
 
 class ProgramData {
     
