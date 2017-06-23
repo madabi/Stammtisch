@@ -10,11 +10,11 @@ import Foundation
 
 class Anlass {
     
-    var date: Date!
-    var restaurant: Restaurant!
+    var eventDate: Date!
+    var restaurant: Restaurant
     
-    init(date: Date, restaurant: Restaurant){
-        self.date = date
+    init(eventDate: Date, restaurant: Restaurant){
+        self.eventDate = eventDate
         self.restaurant = restaurant
     }
     
