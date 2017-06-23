@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4683778A6B249F586D81F3DA /* Pods_Stammtisch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56FF655FF404F12146D56DE /* Pods_Stammtisch.framework */; };
 		A93238351EFD535D005D6D79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93238341EFD535D005D6D79 /* AppDelegate.swift */; };
 		A93238371EFD535D005D6D79 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93238361EFD535D005D6D79 /* ViewController.swift */; };
 		A932383A1EFD535D005D6D79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93238381EFD535D005D6D79 /* Main.storyboard */; };
@@ -22,6 +23,9 @@
 		A932383B1EFD535D005D6D79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A932383E1EFD535D005D6D79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A93238401EFD535D005D6D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C56FF655FF404F12146D56DE /* Pods_Stammtisch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stammtisch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E709FF47DA812A86A58231F2 /* Pods-Stammtisch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stammtisch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stammtisch/Pods-Stammtisch.debug.xcconfig"; sourceTree = "<group>"; };
+		E91B6394A1F3F996A47F6E04 /* Pods-Stammtisch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stammtisch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stammtisch/Pods-Stammtisch.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4683778A6B249F586D81F3DA /* Pods_Stammtisch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B377114CBCAE0B26A5226F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C56FF655FF404F12146D56DE /* Pods_Stammtisch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A93238281EFD535D005D6D79 = {
 			isa = PBXGroup;
 			children = (
 				A93238331EFD535D005D6D79 /* Stammtisch */,
 				A93238321EFD535D005D6D79 /* Products */,
+				D870DCC90716487DE82E43B4 /* Pods */,
+				8B377114CBCAE0B26A5226F0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = Stammtisch;
 			sourceTree = "<group>";
 		};
+		D870DCC90716487DE82E43B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E709FF47DA812A86A58231F2 /* Pods-Stammtisch.debug.xcconfig */,
+				E91B6394A1F3F996A47F6E04 /* Pods-Stammtisch.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A93238431EFD535D005D6D79 /* Build configuration list for PBXNativeTarget "Stammtisch" */;
 			buildPhases = (
+				B83F24EA5AF55ADCE9CA3FF2 /* [CP] Check Pods Manifest.lock */,
 				A932382D1EFD535D005D6D79 /* Sources */,
 				A932382E1EFD535D005D6D79 /* Frameworks */,
 				A932382F1EFD535D005D6D79 /* Resources */,
+				17C033A29D4C98DAD3D2E00B /* [CP] Embed Pods Frameworks */,
+				15792749DC74AE43A067C87D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		15792749DC74AE43A067C87D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stammtisch/Pods-Stammtisch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		17C033A29D4C98DAD3D2E00B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stammtisch/Pods-Stammtisch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B83F24EA5AF55ADCE9CA3FF2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A932382D1EFD535D005D6D79 /* Sources */ = {
@@ -259,6 +334,7 @@
 		};
 		A93238441EFD535D005D6D79 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E709FF47DA812A86A58231F2 /* Pods-Stammtisch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V5QNM5ZAW9;
@@ -272,6 +348,7 @@
 		};
 		A93238451EFD535D005D6D79 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E91B6394A1F3F996A47F6E04 /* Pods-Stammtisch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V5QNM5ZAW9;
