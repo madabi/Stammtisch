@@ -13,7 +13,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
-    let listData = ["Audi", "Mercedes", "Chevrolet"]
     
     var program:ProgramData = ProgramData(groupName: String(), startDate: Date(), frequency: String(), restaurants: [Restaurant()])
     
