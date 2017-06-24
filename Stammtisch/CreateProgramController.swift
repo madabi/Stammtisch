@@ -118,7 +118,7 @@ class CreateProgramController: UIViewController {
     
         
         
-        let urlStr =  "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+\(requestCityName.text!)&radius=\(radiusText.text!)000&key=AIzaSyC51kVvQ30YBdmhq4ivir2LhF65U50_6C4&sensor=true"
+        let urlStr =  "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+\(requestCityName.text!)&radius=\(radiusText.text!)000&key=AIzaSyCXtLy-FhROvM7nlqfp0ZCAD_7jzisdQew&sensor=true"
         guard let url = URL(string: urlStr) else {
             print("invalid url")
             print(urlStr)
@@ -129,7 +129,8 @@ class CreateProgramController: UIViewController {
             
             if let error = error{
                 print(error)
-                return
+                self.performSegue(withIdentifier: "unwindToProgramList", sender: self)
+                
             }
             
             if let response = response as? HTTPURLResponse{
@@ -155,7 +156,14 @@ class CreateProgramController: UIViewController {
             
             var restaurants = [Restaurant]()
             
-            for index in 0 ..< json["results"].count {
+            
+            let resultCount = json["results"].count
+            var maxRestaurants = 20
+            if(resultCount < maxRestaurants){
+                maxRestaurants = resultCount
+            }
+            
+            for index in 0 ..< maxRestaurants {
                 var resti_json = json["results"][index]
                 var resti = Restaurant()
                 resti.name = resti_json["name"].stringValue

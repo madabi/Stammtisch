@@ -280,7 +280,6 @@
                         <outlet property="frequencyText" destination="wbF-6M-uIg" id="z9t-vj-0Hh"/>
                         <outlet property="locationText" destination="zlb-fp-y9d" id="XLP-Ba-cgQ"/>
                         <outlet property="radiusText" destination="e9N-JD-odq" id="UWW-Uv-MKj"/>
-                        <outlet property="requestButton" destination="PHF-2Z-zFf" id="FPa-bX-dOB"/>
                         <outlet property="requestCityName" destination="zlb-fp-y9d" id="pMi-Kg-HAE"/>
                         <outlet property="requestGroupName" destination="CSw-dg-3nj" id="UAK-u6-NT3"/>
                         <segue destination="eN1-a0-JAb" kind="unwind" identifier="unwindToProgramList" unwindAction="unwindToProgramListWithSender:" id="zE2-OF-jb8"/>
@@ -296,7 +295,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VeI-4u-6mF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6nt-fm-6n8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6nt-fm-6n8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -314,7 +313,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wWC-us-Rlu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OXC-Q2-kWe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="OXC-Q2-kWe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
