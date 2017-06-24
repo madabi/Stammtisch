@@ -13,4 +13,5 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var restaurantTitle: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
 }

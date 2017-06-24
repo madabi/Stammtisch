@@ -78,9 +78,8 @@ class CreateProgramController: UIViewController {
         datePicker.datePickerMode = .dateAndTime
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target:nil,action: #selector (donePressed))
+        
         // toolbar
-        
-        
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         toolbar.setItems([doneButton], animated: false)
@@ -95,7 +94,7 @@ class CreateProgramController: UIViewController {
     func donePressed(){
         //format date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .full
+        dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
         
         datePickerText.text = dateFormatter.string(from:datePicker.date)
