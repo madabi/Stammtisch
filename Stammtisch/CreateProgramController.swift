@@ -61,7 +61,9 @@ class CreateProgramController: UIViewController {
     }
     
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        self.overlay?.removeFromSuperview()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -199,7 +201,7 @@ class CreateProgramController: UIViewController {
             print("Startdatum: ", startDate)
             print("Radius: ", self.radiusText.text!)
             
-            self.overlay?.removeFromSuperview()
+            
             self.performSegue(withIdentifier: "unwindToProgramList", sender: self)
         }
         
