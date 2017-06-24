@@ -17,17 +17,40 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var program:ProgramData = ProgramData()
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return(program.anlaesse!.count)
+        return(program.anlaesse?.count ?? 0)
     }
     
     
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+        let cell = EventCell(style: UITableViewCellStyle.default, reuseIdentifier: "eventCell")
         
-        cell.textLabel?.text = program.anlaesse![indexPath.row].restaurant.name
-        //print(program.restaurants[indexPath.row].name)
-        print(program.groupName)
+        //format date
+        let cellDayFormatter = DateFormatter()
+        cellDayFormatter.dateFormat = "dd MM"
+        let cellHourFormatter = DateFormatter()
+        cellHourFormatter.dateFormat = "hh-mm"
+        
+        //cellDateFormatter.dateStyle = .full
+        //cellDateFormatter.timeStyle = .short
+        let event = program.anlaesse?[indexPath.row]
+        print(event?.eventDate)
+        
+        if(event?.eventDate != nil){
+        //cell.dayLabel.text = cellDayFormatter.string(from: (event?.eventDate)!)
+        //cell.timeLabel.text = cellHourFormatter.string(from:(event?.eventDate)!)
+        print(event?.eventDate!)
+        
+        //cell.restaurantTitle.text = program.anlaesse?[indexPath.row].restaurant?.name ?? ""
+        }
+        
+
+        
+
+
+        //print(program.anlaesse?[indexPath.row].eventDate)
+        //print(program.restaurants[indexPath.row].name
+        //print(program.groupName)
         return(cell)
     }
     

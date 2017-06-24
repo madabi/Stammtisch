@@ -11,9 +11,9 @@ import Foundation
 
 class ProgramData {
     
-    var groupName: String! = "group"
-    var startDate: Date! = Date()
-    var frequency: String! = String()
+    var groupName: String? = "group"
+    var startDate: Date? = Date()
+    var frequency: String? = String()
     var anlaesse: [Anlass]? = nil
     
         

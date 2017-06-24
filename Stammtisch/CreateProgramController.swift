@@ -20,46 +20,27 @@ class CreateProgramController: UIViewController {
 //    @IBOutlet weak var locationText: UITextField!
 //    @IBOutlet weak var radiusText: UILabel!
     
+    let userCalendar = Calendar.current
     
     @IBOutlet weak var locationText: UITextField!
     @IBOutlet weak var datePickerText: UITextField!
     @IBOutlet weak var radiusText: UILabel!
     @IBOutlet weak var frequencyText: UILabel!
     
-//    @IBAction func radiusSlider(_ sender: UISlider) {
-//        radiusText.text = String(Int(sender.value))
-//    }
-//    
-//    @IBOutlet weak var frequencyText: UILabel!
-//    @IBAction func frequencySlider(_ sender: UISlider) {
-//        switch Int(sender.value){
-//        case 1:
-//            frequencyText.text = "Alle 2 Monate"
-//        case 2:
-//            frequencyText.text = "Monatlich"
-//        case 3:
-//            frequencyText.text = "Alle 2 Wochen"
-//        case 4:
-//            frequencyText.text = "Wöchentlich"
-//        default:
-//            frequencyText.text = "Wöchentlich"
-//        }
-//        
-//    }
-    
+
     @IBAction func radiusSlider(_ sender: UISlider) {
             radiusText.text = String(Int(sender.value))
     }
     
     @IBAction func frequencySlider(_ sender: UISlider) {
             switch Int(sender.value){
-            case 1:
-                frequencyText.text = "Alle 2 Monate"
-            case 2:
-                frequencyText.text = "Monatlich"
-            case 3:
-                frequencyText.text = "Alle 2 Wochen"
             case 4:
+                frequencyText.text = "Alle 2 Monate"
+            case 3:
+                frequencyText.text = "Monatlich"
+            case 2:
+                frequencyText.text = "Alle 2 Wochen"
+            case 1:
                 frequencyText.text = "Wöchentlich"
             default:
                 frequencyText.text = "Wöchentlich"
@@ -233,11 +214,11 @@ class CreateProgramController: UIViewController {
     }
     
     func generateEvents(startDate: Date, restaurants: [Restaurant], frequency: String) -> [Anlass]{
-        var dates = [Date()]
         var anlaesse = [Anlass()]
         var tempdate = startDate
         var valueMonth = 0
         var valueDay = 0
+        
         switch frequency {
         case "Alle 2 Monate":
             valueMonth = 2
@@ -250,21 +231,20 @@ class CreateProgramController: UIViewController {
         default:
             valueDay = 7
         }
-        var calendar = NSCalendar.current
+        
         for index in 0 ..< restaurants.count {
-            var newAnlass = Anlass()
+            let newAnlass = Anlass()
             newAnlass.eventDate = tempdate
             newAnlass.restaurant = restaurants[index]
-            anlaesse.append(newAnlass)
+            
             if valueDay>0 {
-                // Datum für nächsten Anlass finden:
-                // tempdate = tempdate plus valueDay Tage
-            }
-            if valueMonth>0 {
-                // Datum für nächsten Anlass finden:
-                // tempdate = tempdate plus valueMonth Monate
+                newAnlass.eventDate = userCalendar.date(byAdding: .day, value: valueDay, to: tempdate)!
+            }else{
+                newAnlass.eventDate = userCalendar.date(byAdding: .month, value: valueMonth, to: tempdate)!
             }
             
+            anlaesse.append(newAnlass)
+            tempdate = newAnlass.eventDate!
             
         }
         

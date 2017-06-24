@@ -17,6 +17,7 @@
 		A932383C1EFD535D005D6D79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A932383B1EFD535D005D6D79 /* Assets.xcassets */; };
 		A932383F1EFD535D005D6D79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A932383D1EFD535D005D6D79 /* LaunchScreen.storyboard */; };
 		A9B7A0E21EFD579C00CB5A87 /* CreateProgramController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7A0E11EFD579C00CB5A87 /* CreateProgramController.swift */; };
+		A9B7A0EA1EFE62A500CB5A87 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7A0E91EFE62A500CB5A87 /* EventCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		A932383E1EFD535D005D6D79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A93238401EFD535D005D6D79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9B7A0E11EFD579C00CB5A87 /* CreateProgramController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProgramController.swift; sourceTree = "<group>"; };
+		A9B7A0E91EFE62A500CB5A87 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		C56FF655FF404F12146D56DE /* Pods_Stammtisch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stammtisch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E709FF47DA812A86A58231F2 /* Pods-Stammtisch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stammtisch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stammtisch/Pods-Stammtisch.debug.xcconfig"; sourceTree = "<group>"; };
 		E91B6394A1F3F996A47F6E04 /* Pods-Stammtisch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stammtisch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stammtisch/Pods-Stammtisch.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				70BE251C1EFD856100ED9982 /* ProgramData.swift */,
 				70BE251E1EFD858500ED9982 /* Restaurant.swift */,
 				70BE25201EFD85A200ED9982 /* Anlass.swift */,
+				A9B7A0E91EFE62A500CB5A87 /* EventCell.swift */,
 			);
 			path = Stammtisch;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				70BE25211EFD85A200ED9982 /* Anlass.swift in Sources */,
 				70BE251D1EFD856100ED9982 /* ProgramData.swift in Sources */,
 				A93238351EFD535D005D6D79 /* AppDelegate.swift in Sources */,
+				A9B7A0EA1EFE62A500CB5A87 /* EventCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

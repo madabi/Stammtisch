@@ -10,8 +10,8 @@ import Foundation
 
 class Anlass {
     
-    var eventDate: Date! = nil
-    var restaurant: Restaurant! = nil
+    var eventDate: Date? = nil
+    var restaurant: Restaurant? = nil
   
     
 }
