@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var editBarButton: UIBarButtonItem!
     
     var program:ProgramData = ProgramData()
     
@@ -92,29 +93,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let movedObject = self.program.anlaesse?[sourceIndexPath.row]
         self.program.anlaesse?.remove(at: sourceIndexPath.row)
         self.program.anlaesse?.insert(movedObject!, at: destinationIndexPath.row)
-        NSLog("%@", "\(sourceIndexPath.row) => \(destinationIndexPath.row) \(self.program.anlaesse)")
-        // To check for correctness enable: self.tableView.reloadData()
     }
     
     
     
     @IBAction func unwindToProgramList(sender: UIStoryboardSegue) {
         let sourceViewController = sender.source as? CreateProgramController
-        let program = sourceViewController?.program
+        self.program = (sourceViewController?.program)!
         
-        print(program?.anlaesse?.count)
+        
         self.tableView.reloadData()
+        self.updateEditButton()
     }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.updateEditButton()
         
-        
-        if(program.anlaesse?.count == 0){
-            self.navigationItem.leftBarButtonItem = nil
-        }
-        // Do any additional setup after loading the view, typically from a nib.
+     
         
     }
     
@@ -126,6 +123,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //self.tableView.reloadData()
+        
+        
     }
     
     private func getDateFormatted(date: Date) -> [String] {
@@ -161,4 +160,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         controller.dismiss(animated: true)
     }
     
+    func updateEditButton(){
+        if(self.program.anlaesse == nil){
+            self.editBarButton.tintColor = .clear
+            self.editBarButton.isEnabled = false
+        }else{
+            self.editBarButton.tintColor = UIColor(red: 0.0, green: 0.48, blue: 1.0, alpha: 1)
+            self.editBarButton.isEnabled = true
+        }
+    }
 }

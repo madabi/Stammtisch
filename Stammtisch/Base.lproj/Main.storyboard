@@ -107,6 +107,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editBarButton" destination="2Ob-l4-MHb" id="Oh9-hV-bDx"/>
                         <outlet property="tableView" destination="XKv-Qj-1NO" id="krb-NJ-ZRN"/>
                     </connections>
                 </viewController>
@@ -295,7 +296,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VeI-4u-6mF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6nt-fm-6n8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6nt-fm-6n8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -313,7 +314,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wWC-us-Rlu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OXC-Q2-kWe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="OXC-Q2-kWe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
