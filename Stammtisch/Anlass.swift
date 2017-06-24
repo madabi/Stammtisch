@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Anlass {
+class Anlass: Object {
     
     var eventDate: Date? = nil
     var restaurant: Restaurant? = nil

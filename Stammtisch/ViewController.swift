@@ -18,9 +18,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //var program:ProgramData = ProgramData()
     // get ProgramData from Realm
     let realm = try! Realm()
-    var program:ProgramData = ProgramData()
     
-    var program = realm.objects(ProgramData.self).first()
+    //var program = ProgramData()
+    
+    var program:ProgramData = try! Realm().objects(ProgramData.self).first!
+
+    
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return(program.anlaesse?.count ?? 0)
@@ -37,7 +40,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cellHourFormatter = DateFormatter()
         cellHourFormatter.dateFormat = "hh:mm"
         
-
+       
         let event = program.anlaesse?[indexPath.row]
 
         cell.dayLabel.text = cellDayFormatter.string(from: (event?.eventDate) ?? Date())
