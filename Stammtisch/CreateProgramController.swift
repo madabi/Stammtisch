@@ -11,6 +11,10 @@ import UIKit
 import SwiftyJSON
 
 class CreateProgramController: UIViewController {
+   
+    var overlay : UIView?
+    
+    
     
     var program = ProgramData()
     
@@ -107,6 +111,10 @@ class CreateProgramController: UIViewController {
     
     
     func performRequest(){
+    
+        addOverlay()
+    
+        
         
         let urlStr =  "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+\(requestCityName.text!)&radius=\(radiusText.text!)000&key=AIzaSyC51kVvQ30YBdmhq4ivir2LhF65U50_6C4&sensor=true"
         guard let url = URL(string: urlStr) else {
@@ -115,7 +123,7 @@ class CreateProgramController: UIViewController {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) { (data:Data?, response: URLResponse?, error: Error?) in
+        let task = URLSession.shared.dataTask(with: url) {  (data:Data?, response: URLResponse?, error: Error?) in
             
             if let error = error{
                 print(error)
@@ -191,7 +199,7 @@ class CreateProgramController: UIViewController {
             print("Startdatum: ", startDate)
             print("Radius: ", self.radiusText.text!)
             
-            
+            self.overlay?.removeFromSuperview()
             self.performSegue(withIdentifier: "unwindToProgramList", sender: self)
         }
         
@@ -239,6 +247,12 @@ class CreateProgramController: UIViewController {
         
     }
     
+    func addOverlay(){
+        self.overlay = UIView(frame: view.frame)
+        self.overlay!.backgroundColor = .white
+        self.overlay!.alpha = 0.8
+        view.addSubview(self.overlay!)
+    }
   
     
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
