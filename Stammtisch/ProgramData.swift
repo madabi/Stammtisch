@@ -7,9 +7,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-
-class ProgramData {
+class ProgramData: Object {
     
     var groupName: String? = "group"
     var startDate: Date? = Date()

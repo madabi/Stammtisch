@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SwiftyJSON
+import RealmSwift
 
 
 class CreateProgramController: UIViewController {
@@ -206,6 +207,12 @@ class CreateProgramController: UIViewController {
             print("Startdatum: ", startDate)
             print("Radius: ", self.radiusText.text!)
             
+            
+            // Write program to Realm
+            let realm = try! Realm()
+            try! realm.write {
+                realm.add(self.program)
+            }
             
             
             self.performSegue(withIdentifier: "showProgram", sender: self)

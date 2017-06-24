@@ -11,6 +11,7 @@
 		70BE251D1EFD856100ED9982 /* ProgramData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE251C1EFD856100ED9982 /* ProgramData.swift */; };
 		70BE251F1EFD858500ED9982 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE251E1EFD858500ED9982 /* Restaurant.swift */; };
 		70BE25211EFD85A200ED9982 /* Anlass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE25201EFD85A200ED9982 /* Anlass.swift */; };
+		70F855D61EFEBCBA0082DFC6 /* objC.m in Sources */ = {isa = PBXBuildFile; fileRef = 70F855D51EFEBCBA0082DFC6 /* objC.m */; };
 		A93238351EFD535D005D6D79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93238341EFD535D005D6D79 /* AppDelegate.swift */; };
 		A93238371EFD535D005D6D79 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93238361EFD535D005D6D79 /* ViewController.swift */; };
 		A932383A1EFD535D005D6D79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93238381EFD535D005D6D79 /* Main.storyboard */; };
@@ -24,6 +25,8 @@
 		70BE251C1EFD856100ED9982 /* ProgramData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramData.swift; sourceTree = "<group>"; };
 		70BE251E1EFD858500ED9982 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		70BE25201EFD85A200ED9982 /* Anlass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anlass.swift; sourceTree = "<group>"; };
+		70F855D41EFEBCB90082DFC6 /* Stammtisch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Stammtisch-Bridging-Header.h"; sourceTree = "<group>"; };
+		70F855D51EFEBCBA0082DFC6 /* objC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = objC.m; sourceTree = "<group>"; };
 		A93238311EFD535D005D6D79 /* Stammtisch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stammtisch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93238341EFD535D005D6D79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A93238361EFD535D005D6D79 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 		A93238331EFD535D005D6D79 /* Stammtisch */ = {
 			isa = PBXGroup;
 			children = (
+				70F855D51EFEBCBA0082DFC6 /* objC.m */,
 				A93238341EFD535D005D6D79 /* AppDelegate.swift */,
 				A93238361EFD535D005D6D79 /* ViewController.swift */,
 				A9B7A0E11EFD579C00CB5A87 /* CreateProgramController.swift */,
@@ -90,6 +94,7 @@
 				70BE251E1EFD858500ED9982 /* Restaurant.swift */,
 				70BE25201EFD85A200ED9982 /* Anlass.swift */,
 				A9B7A0E91EFE62A500CB5A87 /* EventCell.swift */,
+				70F855D41EFEBCB90082DFC6 /* Stammtisch-Bridging-Header.h */,
 			);
 			path = Stammtisch;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 					A93238301EFD535D005D6D79 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = V5QNM5ZAW9;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -234,6 +240,7 @@
 				70BE251D1EFD856100ED9982 /* ProgramData.swift in Sources */,
 				A93238351EFD535D005D6D79 /* AppDelegate.swift in Sources */,
 				A9B7A0EA1EFE62A500CB5A87 /* EventCell.swift in Sources */,
+				70F855D61EFEBCBA0082DFC6 /* objC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +312,9 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Stammtisch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USER_HEADER_SEARCH_PATHS = Pods;
 			};
 			name = Debug;
 		};
@@ -347,7 +356,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Stammtisch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USER_HEADER_SEARCH_PATHS = Pods;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -357,12 +368,15 @@
 			baseConfigurationReference = E709FF47DA812A86A58231F2 /* Pods-Stammtisch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = V5QNM5ZAW9;
 				INFOPLIST_FILE = Stammtisch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Stammtisch.Stammtisch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Stammtisch/Stammtisch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -372,12 +386,14 @@
 			baseConfigurationReference = E91B6394A1F3F996A47F6E04 /* Pods-Stammtisch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = V5QNM5ZAW9;
 				INFOPLIST_FILE = Stammtisch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Stammtisch.Stammtisch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Stammtisch/Stammtisch-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

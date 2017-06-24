@@ -8,13 +8,19 @@
 
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
     
+    //var program:ProgramData = ProgramData()
+    // get ProgramData from Realm
+    let realm = try! Realm()
     var program:ProgramData = ProgramData()
+    
+    var program = realm.objects(ProgramData.self).first()
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return(program.anlaesse?.count ?? 0)
