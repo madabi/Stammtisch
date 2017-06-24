@@ -16,7 +16,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     var tableData:TableContents = TableContents()
-    let realm = try! Realm()
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return(tableData.cells.count ?? 0)
@@ -47,16 +46,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func unwindToProgramList(sender: UIStoryboardSegue) {
         let sourceViewController = sender.source as? CreateProgramController
         let tableData = sourceViewController?.tableData
-        
-        print(tableData?.cells.count)
+            print("Anzahl Einträge in tableData in unwindToProgramList: ", tableData?.cells.count)
         self.tableView.reloadData()
     }
 
-    
+    func saveTableData (){
+        // Get the default Realm
+        let realm = try! Realm()
+        // You only need to do this once (per thread)
+        let eintraege = realm.objects(TableContents.self)
+        if eintraege.count>0 {
+            try! realm.write {
+                realm.deleteAll()
+            }
+        }
+        
+        try! realm.write {
+            realm.add(self.tableData)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        saveTableData()
+
     }
     
     override func didReceiveMemoryWarning() {

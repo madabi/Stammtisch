@@ -187,12 +187,7 @@ class CreateProgramController: UIViewController {
             self.program.anlaesse = self.generateEvents(startDate: startDate, restaurants: restaurants, frequency: self.frequencyText.text!)
             
             
-            for index in 0 ..< restaurants.count {
-                var cell = CellContent()
-                cell.dateString = self.program.anlaesse?[index].eventDate
-                cell.restiString = self.program.anlaesse?[index].restaurant?.name
-                self.tableData.cells.append(cell)
-            }
+            
          
             print("Request:")
             print(self.requestCityName.text!)
@@ -200,11 +195,7 @@ class CreateProgramController: UIViewController {
             print(self.program.frequency)
             print("Startdatum: ", startDate)
             print("Radius: ", self.radiusText.text!)
-            // Get the default Realm
-            let realm = try! Realm()
-            // You only need to do this once (per thread)
-            
-            
+          
             
             self.performSegue(withIdentifier: "unwindToProgramList", sender: self)
         }
@@ -253,10 +244,16 @@ class CreateProgramController: UIViewController {
         
     }
     
-  
-    
+ 
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             var ProgramVC : ViewController = segue.destination as! ViewController
+            for index in 0 ..< Int((self.program.anlaesse?.count)!) {
+           // for index in 0 ..< self.program.anlaesse?.count {
+                var cell = CellContent()
+                cell.dateString = self.program.anlaesse?[index].eventDate
+                cell.restiString = self.program.anlaesse?[index].restaurant?.name
+                self.tableData.cells.append(cell)
+            }
                 ProgramVC.tableData = self.tableData
        }
     
