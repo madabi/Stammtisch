@@ -13,7 +13,12 @@ import SwiftyJSON
 class CreateProgramController: UIViewController {
    
     var overlay : UIView?
+    let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target:nil,action: #selector (donePressed))
+    let doneButtonText = UIBarButtonItem(barButtonSystemItem: .done, target:nil,action: #selector (donePressedText))
     
+    
+    let toolbar = UIToolbar()
+    let toolbarText = UIToolbar()
     
     
     var program = ProgramData()
@@ -67,7 +72,12 @@ class CreateProgramController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        toolbar.sizeToFit()
+        toolbar.setItems([doneButton], animated: false)
+        toolbarText.sizeToFit()
+        toolbarText.setItems([doneButtonText], animated: false)
+        requestCityName.inputAccessoryView = toolbarText
+        requestGroupName.inputAccessoryView = toolbarText
         makeDatePicker()
         
         
@@ -82,15 +92,6 @@ class CreateProgramController: UIViewController {
     func makeDatePicker(){
         //datepicker after tutorial: youtube.com/watch?v=_ADJxJ7pjRk#t=426.928552063
         datePicker.datePickerMode = .dateAndTime
-        
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target:nil,action: #selector (donePressed))
-        
-        // toolbar
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        toolbar.setItems([doneButton], animated: false)
-        
-        
         //connect datepicker with label
         datePickerText.inputAccessoryView = toolbar
         datePickerText.inputView = datePicker
@@ -102,12 +103,13 @@ class CreateProgramController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
-        
         datePickerText.text = dateFormatter.string(from:datePicker.date)
-        
-        
         self.view.endEditing(true)
     }
+    func donePressedText(){
+        self.view.endEditing(true)
+    }
+
     
     
     
