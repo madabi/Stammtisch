@@ -220,7 +220,7 @@ class CreateProgramController: UIViewController {
     }
     
     func generateEvents(startDate: Date, restaurants: [Restaurant], frequency: String) -> [Anlass]{
-        var anlaesse = [Anlass()]
+        var anlaesse = [Anlass]()
         var tempdate = startDate
         var valueMonth = 0
         var valueDay = 0
