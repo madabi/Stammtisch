@@ -11,6 +11,8 @@
 		70BE251D1EFD856100ED9982 /* ProgramData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE251C1EFD856100ED9982 /* ProgramData.swift */; };
 		70BE251F1EFD858500ED9982 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE251E1EFD858500ED9982 /* Restaurant.swift */; };
 		70BE25211EFD85A200ED9982 /* Anlass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BE25201EFD85A200ED9982 /* Anlass.swift */; };
+		70F855D81EFEFD1A0082DFC6 /* CellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F855D71EFEFD1A0082DFC6 /* CellContent.swift */; };
+		70F855DA1EFF02D70082DFC6 /* TableContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F855D91EFF02D70082DFC6 /* TableContents.swift */; };
 		A93238351EFD535D005D6D79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93238341EFD535D005D6D79 /* AppDelegate.swift */; };
 		A93238371EFD535D005D6D79 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93238361EFD535D005D6D79 /* ViewController.swift */; };
 		A932383A1EFD535D005D6D79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A93238381EFD535D005D6D79 /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 		70BE251C1EFD856100ED9982 /* ProgramData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramData.swift; sourceTree = "<group>"; };
 		70BE251E1EFD858500ED9982 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		70BE25201EFD85A200ED9982 /* Anlass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anlass.swift; sourceTree = "<group>"; };
+		70F855D71EFEFD1A0082DFC6 /* CellContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellContent.swift; sourceTree = "<group>"; };
+		70F855D91EFF02D70082DFC6 /* TableContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableContents.swift; sourceTree = "<group>"; };
 		A93238311EFD535D005D6D79 /* Stammtisch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stammtisch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93238341EFD535D005D6D79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A93238361EFD535D005D6D79 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				70BE251E1EFD858500ED9982 /* Restaurant.swift */,
 				70BE25201EFD85A200ED9982 /* Anlass.swift */,
 				A9B7A0E91EFE62A500CB5A87 /* EventCell.swift */,
+				70F855D71EFEFD1A0082DFC6 /* CellContent.swift */,
+				70F855D91EFF02D70082DFC6 /* TableContents.swift */,
 			);
 			path = Stammtisch;
 			sourceTree = "<group>";
@@ -229,11 +235,13 @@
 			files = (
 				70BE251F1EFD858500ED9982 /* Restaurant.swift in Sources */,
 				A9B7A0E21EFD579C00CB5A87 /* CreateProgramController.swift in Sources */,
+				70F855DA1EFF02D70082DFC6 /* TableContents.swift in Sources */,
 				A93238371EFD535D005D6D79 /* ViewController.swift in Sources */,
 				70BE25211EFD85A200ED9982 /* Anlass.swift in Sources */,
 				70BE251D1EFD856100ED9982 /* ProgramData.swift in Sources */,
 				A93238351EFD535D005D6D79 /* AppDelegate.swift in Sources */,
 				A9B7A0EA1EFE62A500CB5A87 /* EventCell.swift in Sources */,
+				70F855D81EFEFD1A0082DFC6 /* CellContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

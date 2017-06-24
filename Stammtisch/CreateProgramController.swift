@@ -14,6 +14,7 @@ import RealmSwift
 class CreateProgramController: UIViewController {
     
     var program = ProgramData()
+    var tableData = TableContents()
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -168,6 +169,7 @@ class CreateProgramController: UIViewController {
             
             print(restaurants.count)
             for index in 0 ..< restaurants.count {
+              
                 print(restaurants[index].name)
             }
             
@@ -185,7 +187,13 @@ class CreateProgramController: UIViewController {
             self.program.anlaesse = self.generateEvents(startDate: startDate, restaurants: restaurants, frequency: self.frequencyText.text!)
             
             
-            
+            for index in 0 ..< restaurants.count {
+                var cell = CellContent()
+                cell.dateString = self.program.anlaesse?[index].eventDate
+                cell.restiString = self.program.anlaesse?[index].restaurant?.name
+                self.tableData.cells.append(cell)
+            }
+         
             print("Request:")
             print(self.requestCityName.text!)
             print(self.program.groupName)
@@ -196,23 +204,7 @@ class CreateProgramController: UIViewController {
             let realm = try! Realm()
             // You only need to do this once (per thread)
             
-            let programsInRealm = realm.objects(ProgramData.self) // retrieves all ProgramData from the default Realm
-           print(programsInRealm.count)
-            if programsInRealm.count>0{
-        
-                try! realm.write {
-                    realm.delete(realm.objects(ProgramData.self))
-                   // realm.delete(realm.objects(ProgramData.self))
-                }
-            }
-            // Add to the Realm inside a transaction
-            try! realm.write {
-                realm.add(self.program)
-                print("Added program to Realm")
-            }
-            let countingInRealm = realm.objects(ProgramData.self) // retrieves all ProgramData from the default Realm
-            print("Number of instances in Realm: ", countingInRealm.count)
-            print(countingInRealm[0].groupName)
+            
             
             self.performSegue(withIdentifier: "unwindToProgramList", sender: self)
         }
@@ -265,7 +257,7 @@ class CreateProgramController: UIViewController {
     
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             var ProgramVC : ViewController = segue.destination as! ViewController
-                ProgramVC.program = self.program
+                ProgramVC.tableData = self.tableData
        }
     
 }

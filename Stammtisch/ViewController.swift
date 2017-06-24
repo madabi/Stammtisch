@@ -15,11 +15,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     
     
-    var program:ProgramData = ProgramData()
+    var tableData:TableContents = TableContents()
     let realm = try! Realm()
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return(program.anlaesse?.count ?? 0)
+        return(tableData.cells.count ?? 0)
     }
     
     
@@ -34,20 +34,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cellHourFormatter.dateFormat = "hh:mm"
         
 
-        let event = program.anlaesse?[indexPath.row]
+        let cellContent = tableData.cells[indexPath.row]
 
-        cell.dayLabel.text = cellDayFormatter.string(from: (event?.eventDate) ?? Date())
-        cell.timeLabel.text = cellHourFormatter.string(from:(event?.eventDate) ?? Date())
-        cell.restaurantTitle.text = (program.anlaesse?[indexPath.row])?.restaurant?.name ?? ""
+        cell.dayLabel.text = cellDayFormatter.string(from: (cellContent.dateString) ?? Date())
+        cell.timeLabel.text = cellHourFormatter.string(from:(cellContent.dateString) ?? Date())
+     //   cell.restaurantTitle.text = (program.anlaesse?[indexPath.row])?.restaurant?.name ?? ""
+        cell.restaurantTitle.text = (cellContent.restiString ?? "")
 
         return(cell)
     }
     
     @IBAction func unwindToProgramList(sender: UIStoryboardSegue) {
         let sourceViewController = sender.source as? CreateProgramController
-        let program = sourceViewController?.program
+        let tableData = sourceViewController?.tableData
         
-        print(program?.anlaesse?.count)
+        print(tableData?.cells.count)
         self.tableView.reloadData()
     }
 
@@ -55,11 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        var test = realm.objects(ProgramData.self).count
-        if test>0 {
-            self.program = realm.objects(ProgramData.self).first!
-            print(String("Group " + self.program.groupName!) ?? "no group name!!")
-        }
+        
     }
     
     override func didReceiveMemoryWarning() {
