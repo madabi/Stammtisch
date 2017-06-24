@@ -41,6 +41,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return(cell)
     }
     
+    @IBAction func unwindToProgramList(sender: UIStoryboardSegue) {
+        let sourceViewController = sender.source as? CreateProgramController
+        let program = sourceViewController?.program
+        
+        print(program?.anlaesse?.count)
+        self.tableView.reloadData()
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

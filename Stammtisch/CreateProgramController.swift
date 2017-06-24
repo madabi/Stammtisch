@@ -14,12 +14,9 @@ class CreateProgramController: UIViewController {
     
     var program = ProgramData()
     
-    //@IBOutlet weak var datePickerText: UITextField!
-//    @IBOutlet weak var datePickerText: UITextField!
-//    
-//    @IBOutlet weak var locationText: UITextField!
-//    @IBOutlet weak var radiusText: UILabel!
-    
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     let userCalendar = Calendar.current
     
     @IBOutlet weak var locationText: UITextField!
@@ -49,17 +46,15 @@ class CreateProgramController: UIViewController {
     
     
     let datePicker = UIDatePicker()
-    
-    //@IBOutlet weak var requestButton: UIButton!
+  
     @IBOutlet weak var requestButton: UIButton!
-    
-    
     @IBOutlet weak var requestGroupName: UITextField!
-    
     @IBOutlet weak var requestCityName: UITextField!
-    //@IBOutlet weak var requestGroupName: UITextField!
-    //@IBOutlet weak var requestCityName: UITextField!
+
     
+    @IBAction func requestButton(_ sender: UIButton) {
+        performRequest()
+    }
     
     
     
@@ -67,7 +62,7 @@ class CreateProgramController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //makeDatePicker()
+        makeDatePicker()
         
         
     }
@@ -109,18 +104,10 @@ class CreateProgramController: UIViewController {
         self.view.endEditing(true)
     }
     
-    @IBAction func startRequest(_ sender: Any) {
-        performRequest()
-        
-    }
     
     
     
     func performRequest(){
-        
-        if radiusText.text == "0" {
-            radiusText.text = "1"
-        }
         
         let urlStr =  "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+\(requestCityName.text!)&radius=\(radiusText.text!)000&key=AIzaSyC51kVvQ30YBdmhq4ivir2LhF65U50_6C4&sensor=true"
         guard let url = URL(string: urlStr) else {
@@ -205,8 +192,8 @@ class CreateProgramController: UIViewController {
             print("Startdatum: ", startDate)
             print("Radius: ", self.radiusText.text!)
             
-            self.performSegue(withIdentifier: "showProgram", sender: self)
             
+            self.performSegue(withIdentifier: "unwindToProgramList", sender: self)
         }
         
         task.resume()
@@ -253,12 +240,11 @@ class CreateProgramController: UIViewController {
         
     }
     
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if (segue.identifier == "showProgram") {
-                var ProgramVC : ViewController = segue.destination as! ViewController
-                ProgramVC.program = self.program
-           }
+  
     
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            var ProgramVC : ViewController = segue.destination as! ViewController
+                ProgramVC.program = self.program
        }
     
 }
