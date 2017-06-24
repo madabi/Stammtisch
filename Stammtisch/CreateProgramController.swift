@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SwiftyJSON
+import RealmSwift
 
 class CreateProgramController: UIViewController {
     
@@ -191,7 +192,27 @@ class CreateProgramController: UIViewController {
             print(self.program.frequency)
             print("Startdatum: ", startDate)
             print("Radius: ", self.radiusText.text!)
+            // Get the default Realm
+            let realm = try! Realm()
+            // You only need to do this once (per thread)
             
+            let programsInRealm = realm.objects(ProgramData.self) // retrieves all ProgramData from the default Realm
+           print(programsInRealm.count)
+            if programsInRealm.count>0{
+        
+                try! realm.write {
+                    realm.delete(realm.objects(ProgramData.self))
+                   // realm.delete(realm.objects(ProgramData.self))
+                }
+            }
+            // Add to the Realm inside a transaction
+            try! realm.write {
+                realm.add(self.program)
+                print("Added program to Realm")
+            }
+            let countingInRealm = realm.objects(ProgramData.self) // retrieves all ProgramData from the default Realm
+            print("Number of instances in Realm: ", countingInRealm.count)
+            print(countingInRealm[0].groupName)
             
             self.performSegue(withIdentifier: "unwindToProgramList", sender: self)
         }

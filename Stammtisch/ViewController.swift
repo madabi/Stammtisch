@@ -8,6 +8,7 @@
 
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -15,6 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     var program:ProgramData = ProgramData()
+    let realm = try! Realm()
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return(program.anlaesse?.count ?? 0)
@@ -53,7 +55,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        var test = realm.objects(ProgramData.self).count
+        if test>0 {
+            self.program = realm.objects(ProgramData.self).first!
+            print(String("Group " + self.program.groupName!) ?? "no group name!!")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,6 +70,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //self.tableView.reloadData()
+        
     }
     
 }

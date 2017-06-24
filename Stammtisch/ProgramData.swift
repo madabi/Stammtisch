@@ -7,14 +7,14 @@
 //
 
 import Foundation
+import RealmSwift
 
-
-class ProgramData {
+class ProgramData: Object {
     
-    var groupName: String? = "group"
-    var startDate: Date? = Date()
-    var frequency: String? = String()
-    var anlaesse: [Anlass]? = nil
+    dynamic var groupName: String? = "group"
+    dynamic var startDate: Date? = Date()
+    dynamic var frequency: String? = String()
+    dynamic var anlaesse: [Anlass]? = nil
     
         
 }
