@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VeI-4u-6mF">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VeI-4u-6mF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -202,7 +202,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="requestButton:" destination="ddY-yW-var" eventType="touchUpInside" id="y70-h6-BIn"/>
+                                    <action selector="requestButton:" destination="ddY-yW-var" eventType="touchUpInside" id="Dn4-1z-9KM"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jetzt" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Su4-Oa-cwL">
@@ -280,7 +280,6 @@
                         <outlet property="frequencyText" destination="wbF-6M-uIg" id="z9t-vj-0Hh"/>
                         <outlet property="locationText" destination="zlb-fp-y9d" id="XLP-Ba-cgQ"/>
                         <outlet property="radiusText" destination="e9N-JD-odq" id="UWW-Uv-MKj"/>
-                        <outlet property="requestButton" destination="PHF-2Z-zFf" id="FPa-bX-dOB"/>
                         <outlet property="requestCityName" destination="zlb-fp-y9d" id="pMi-Kg-HAE"/>
                         <outlet property="requestGroupName" destination="CSw-dg-3nj" id="UAK-u6-NT3"/>
                         <segue destination="eN1-a0-JAb" kind="unwind" identifier="unwindToProgramList" unwindAction="unwindToProgramListWithSender:" id="zE2-OF-jb8"/>
@@ -296,7 +295,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VeI-4u-6mF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6nt-fm-6n8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6nt-fm-6n8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -314,7 +313,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wWC-us-Rlu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OXC-Q2-kWe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="OXC-Q2-kWe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

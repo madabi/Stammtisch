@@ -56,10 +56,11 @@ class CreateProgramController: UIViewController {
     @IBOutlet weak var requestCityName: UITextField!
 
     
-    @IBAction func requestButton(_ sender: UIButton) {
+   
+    
+    @IBAction func requestButton(_ sender: Any) {
         performRequest()
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         self.overlay?.removeFromSuperview()
