@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class CreateProgramController: UIViewController {
     
-    var program = ProgramData(groupName: String(), startDate: Date(), frequency: String(), restaurants: [Restaurant()])
+    var program = ProgramData()
     
     //@IBOutlet weak var datePickerText: UITextField!
 //    @IBOutlet weak var datePickerText: UITextField!
@@ -207,8 +207,13 @@ class CreateProgramController: UIViewController {
             
             print(startDate)
             
-            self.program = ProgramData(groupName: self.requestGroupName.text!, startDate: startDate, frequency: self.frequencyText.text!, restaurants: restaurants)
             
+            
+            self.program = ProgramData()
+            self.program.groupName = self.requestGroupName.text!
+            self.program.startDate = startDate
+            self.program.frequency = self.frequencyText.text!
+            self.program.anlaesse = self.generateEvents(startDate: startDate, restaurants: restaurants, frequency: self.frequencyText.text!)
             
             
             
@@ -227,7 +232,46 @@ class CreateProgramController: UIViewController {
         
     }
     
-    
+    func generateEvents(startDate: Date, restaurants: [Restaurant], frequency: String) -> [Anlass]{
+        var dates = [Date()]
+        var anlaesse = [Anlass()]
+        var tempdate = startDate
+        var valueMonth = 0
+        var valueDay = 0
+        switch frequency {
+        case "Alle 2 Monate":
+            valueMonth = 2
+        case "Monatlich":
+            valueMonth = 1
+        case "Alle 2 Wochen":
+            valueDay = 14
+        case "Wöchentlich":
+            valueDay = 7
+        default:
+            valueDay = 7
+        }
+        var calendar = NSCalendar.current
+        for index in 0 ..< restaurants.count {
+            var newAnlass = Anlass()
+            newAnlass.eventDate = tempdate
+            newAnlass.restaurant = restaurants[index]
+            anlaesse.append(newAnlass)
+            if valueDay>0 {
+                // Datum für nächsten Anlass finden:
+                // tempdate = tempdate plus valueDay Tage
+            }
+            if valueMonth>0 {
+                // Datum für nächsten Anlass finden:
+                // tempdate = tempdate plus valueMonth Monate
+            }
+            
+            
+        }
+        
+        return anlaesse
+        
+        
+    }
     
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if (segue.identifier == "showProgram") {
