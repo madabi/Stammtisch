@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
+
 class CreateProgramController: UIViewController {
     
     var program = ProgramData()
@@ -204,6 +205,8 @@ class CreateProgramController: UIViewController {
             print(self.program.frequency)
             print("Startdatum: ", startDate)
             print("Radius: ", self.radiusText.text!)
+            
+            
             
             self.performSegue(withIdentifier: "showProgram", sender: self)
             
