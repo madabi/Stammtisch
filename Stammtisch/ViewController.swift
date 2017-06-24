@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
 
         let cellContent = tableData.cells[indexPath.row]
-
+        print(cellContent.restiString ?? "kein Inhalt")
         cell.dayLabel.text = cellDayFormatter.string(from: (cellContent.dateString) ?? Date())
         cell.timeLabel.text = cellHourFormatter.string(from:(cellContent.dateString) ?? Date())
      //   cell.restaurantTitle.text = (program.anlaesse?[indexPath.row])?.restaurant?.name ?? ""
