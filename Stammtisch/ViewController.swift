@@ -9,11 +9,17 @@
 
 import UIKit
 import MessageUI
+import MapKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
     
     
     
+    @IBAction func openNavigationButton(_ sender: UIButton) {
+        
+        
+        //let cell = sender.source as? CreateProgramController
+    }
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var editBarButton: UIBarButtonItem!
@@ -34,10 +40,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let event = program.anlaesse?[indexPath.row]
         let date : [String] = getDateFormatted(date: (event?.eventDate) ?? Date())
 
+        let restaurantAddress = (program.anlaesse?[indexPath.row])?.restaurant?.formatted_address?.components(separatedBy: ",")[0] ?? ""
         cell.dayLabel.text = date[0]
         cell.timeLabel.text = date[1]
         cell.restaurantTitle.text = (program.anlaesse?[indexPath.row])?.restaurant?.name ?? ""
-        cell.addressLabel.text = (program.anlaesse?[indexPath.row])?.restaurant?.formatted_address?.components(separatedBy: ",")[0] ?? ""
+        cell.addressLabel.setTitle(restaurantAddress, for: .normal)
+        
+        cell.addressLabel.tag = indexPath.row
+        
+        cell.addressLabel.addTarget(self,action:#selector(buttonClicked(sender:)), for: .touchUpInside)
+        
+        
 
         return(cell)
     }
@@ -111,6 +124,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.allowsSelection = false;
         self.updateEditButton()
         
      
@@ -171,4 +185,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.editBarButton.isEnabled = true
         }
     }
+    
+    func openMapForPlace(restaurant: Restaurant) {
+        if(restaurant != nil){
+            
+        let latitude: CLLocationDegrees = restaurant.location_lat!
+        let longitude: CLLocationDegrees = restaurant.location_long!
+        
+        let regionDistance:CLLocationDistance = 1000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = restaurant.name
+        mapItem.openInMaps(launchOptions: options)
+            
+        }
+    }
+    
+    func buttonClicked(sender:UIButton) {
+        //stackoverflow.com/questions/27429652/detecting-uibutton-pressed-in-tableview-swift-best-practices
+        //seems far from best practice to save row in tag...
+        let buttonRow = sender.tag
+        let restaurant: Restaurant = ((program.anlaesse?[buttonRow])?.restaurant)!
+        openMapForPlace(restaurant: restaurant)
+    }
+    
 }
