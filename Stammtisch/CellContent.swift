@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+
 class CellContent: Object {
     
     dynamic var dateString: Date?

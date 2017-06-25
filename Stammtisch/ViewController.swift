@@ -50,26 +50,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableView.reloadData()
     }
 
-    func saveTableData (){
-        // Get the default Realm
-        let realm = try! Realm()
-        // You only need to do this once (per thread)
-        let eintraege = realm.objects(TableContents.self)
-        if eintraege.count>0 {
-            try! realm.write {
-                realm.deleteAll()
-            }
-        }
-        
-        try! realm.write {
-            realm.add(self.tableData)
-        }
-    }
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        saveTableData()
 
     }
     

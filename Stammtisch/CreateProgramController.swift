@@ -204,6 +204,28 @@ class CreateProgramController: UIViewController {
         
     }
     
+    
+    // Speichern der Tabellen-Inhalte
+    
+    func saveTableData (){
+        // Get the default Realm
+        let realm = try! Realm()
+        // You only need to do this once (per thread)
+        let eintraege = realm.objects(TableContents.self)
+    
+        if eintraege.count>0 {
+            try! realm.write {
+                realm.deleteAll()
+            }
+        }
+        
+        try! realm.write {
+            realm.add(self.tableData)
+        }
+    }
+    
+    
+    
     func generateEvents(startDate: Date, restaurants: [Restaurant], frequency: String) -> [Anlass]{
         var anlaesse = [Anlass()]
         var tempdate = startDate
@@ -244,16 +266,17 @@ class CreateProgramController: UIViewController {
         
     }
     
+    
  
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             var ProgramVC : ViewController = segue.destination as! ViewController
             for index in 0 ..< Int((self.program.anlaesse?.count)!) {
-           // for index in 0 ..< self.program.anlaesse?.count {
                 var cell = CellContent()
                 cell.dateString = self.program.anlaesse?[index].eventDate
                 cell.restiString = self.program.anlaesse?[index].restaurant?.name
                 self.tableData.cells.append(cell)
             }
+            saveTableData()
                 ProgramVC.tableData = self.tableData
        }
     
