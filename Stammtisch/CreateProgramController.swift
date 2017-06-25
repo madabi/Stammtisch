@@ -249,11 +249,12 @@ class CreateProgramController: UIViewController {
             let newAnlass = Anlass()
             newAnlass.eventDate = tempdate
             newAnlass.restaurant = restaurants[index]
-            
-            if valueDay>0 {
-                newAnlass.eventDate = userCalendar.date(byAdding: .day, value: valueDay, to: tempdate)!
-            }else{
-                newAnlass.eventDate = userCalendar.date(byAdding: .month, value: valueMonth, to: tempdate)!
+            if(index>0){
+                if (valueDay>0) {
+                    newAnlass.eventDate = userCalendar.date(byAdding: .day, value: valueDay, to: tempdate)!
+                }else{
+                    newAnlass.eventDate = userCalendar.date(byAdding: .month, value: valueMonth, to: tempdate)!
+                }
             }
             
             anlaesse.append(newAnlass)

@@ -29,7 +29,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var program:ProgramData = ProgramData()
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return(program.anlaesse.count ?? 0)
+        return(program.anlaesse.count)
     }
     
     
@@ -70,7 +70,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         
-        request.backgroundColor = UIColor(displayP3Red: 0.3, green: 0.0, blue: 0.3, alpha: 0.5)
+        request.backgroundColor = UIColor(displayP3Red: 0.0, green: 0.7, blue: 1.0, alpha: 0.5)
         
         let share = UITableViewRowAction(style: .normal, title: "Teilen") { action, index in
             print("share button tapped")
@@ -142,9 +142,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private func getDateFormatted(date: Date) -> [String] {
         var dates : [String] = [String]()
         let cellDayFormatter = DateFormatter()
+        cellDayFormatter.locale = Locale(identifier: "de_DE")
         cellDayFormatter.dateFormat = "dd.MM."
         let cellHourFormatter = DateFormatter()
-        cellHourFormatter.dateFormat = "hh:mm"
+        cellHourFormatter.locale = Locale(identifier: "de_DE")
+        cellHourFormatter.dateFormat = "HH:mm"
         
         dates.append(cellDayFormatter.string(from: date))
         dates.append(cellHourFormatter.string(from: date))
