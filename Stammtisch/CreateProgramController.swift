@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import SwiftyJSON
 import RealmSwift
-import SwiftyJSONRealmObject
 
 class CreateProgramController: UIViewController {
     
