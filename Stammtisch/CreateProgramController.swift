@@ -2,16 +2,19 @@
 //  CreateProgramController.swift
 //  Stammtisch
 //
-//  Created by Marco Bibrich on 23.06.17.
+//  Created by Marco Bibrich and Lea Boesch on 23.06.17.
 //  Copyright © 2017 Stammtisch. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import SwiftyJSON
+import RealmSwift
+import SwiftyJSONRealmObject
 
 class CreateProgramController: UIViewController {
-   
+    
+    
     var overlay : UIView?
     let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target:nil,action: #selector (donePressed))
     let doneButtonText = UIBarButtonItem(barButtonSystemItem: .done, target:nil,action: #selector (donePressedText))
@@ -99,10 +102,8 @@ class CreateProgramController: UIViewController {
     }
     
     func donePressed(){
-        //format date
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "de_DE")
-        //dateFormatter.dateStyle = .short
         dateFormatter.dateFormat = "dd.MM.YYYY HH:mm"
         datePickerText.text = dateFormatter.string(from:datePicker.date)
         self.view.endEditing(true)
@@ -127,6 +128,7 @@ class CreateProgramController: UIViewController {
             print(urlStr)
             return
         }
+        
         
         let task = URLSession.shared.dataTask(with: url) {  (data:Data?, response: URLResponse?, error: Error?) in
             
@@ -169,16 +171,19 @@ class CreateProgramController: UIViewController {
                 var resti_json = json["results"][index]
                 var resti = Restaurant()
                 resti.name = resti_json["name"].stringValue
-                resti.icon = resti_json["icon"].url
-                resti.id = resti_json["id"].stringValue
-                resti.place_id = resti_json["place_id"].stringValue
-                resti.formatted_address = resti_json["formatted_address"].stringValue
-                resti.rating = resti_json["rating"].doubleValue
-                resti.photo_width = resti_json["photos"]["photo_width"].intValue
-                resti.photo_height = resti_json["photos"]["photo_height"].intValue
-                resti.photo_url = resti_json["photos"]["html_attributions"].stringValue
                 resti.location_lat = resti_json["geometry"]["location"]["lat"].doubleValue
                 resti.location_long = resti_json["geometry"]["location"]["lng"].doubleValue
+                resti.formatted_address = resti_json["formatted_address"].stringValue
+                
+                //for extension purposes we keep these values commented
+                //resti.icon = resti_json["icon"].url
+                //resti.id = resti_json["id"].stringValue
+                //resti.place_id = resti_json["place_id"].stringValue
+                //resti.rating = resti_json["rating"].doubleValue
+                //resti.photo_width = resti_json["photos"]["photo_width"].intValue
+                //resti.photo_height = resti_json["photos"]["photo_height"].intValue
+                //resti.photo_url = resti_json["photos"]["html_attributions"].stringValue
+                
                 
                 restaurants.append(resti)
             }
@@ -201,16 +206,16 @@ class CreateProgramController: UIViewController {
             self.program.groupName = self.requestGroupName.text!
             self.program.startDate = startDate
             self.program.frequency = self.frequencyText.text!
-            self.program.anlaesse = self.generateEvents(startDate: startDate, restaurants: restaurants, frequency: self.frequencyText.text!)
+            self.program.anlaesse.append(objectsIn: self.generateEvents(startDate: startDate, restaurants: restaurants, frequency: self.frequencyText.text!))
             
             
-            
-            print("Request:")
-            print(self.requestCityName.text!)
-            print(self.program.groupName)
-            print(self.program.frequency)
-            print("Startdatum: ", startDate)
-            print("Radius: ", self.radiusText.text!)
+//Debugging
+//            print("Request:")
+//            print(self.requestCityName.text!)
+//            print(self.program.groupName)
+//            print(self.program.frequency)
+//            print("Startdatum: ", startDate)
+//            print("Radius: ", self.radiusText.text!)
             
             
             self.performSegue(withIdentifier: "unwindToProgramList", sender: self)
@@ -218,8 +223,9 @@ class CreateProgramController: UIViewController {
         
         task.resume()
         
-    }
     
+    }
+
     func generateEvents(startDate: Date, restaurants: [Restaurant], frequency: String) -> [Anlass]{
         var anlaesse = [Anlass]()
         var tempdate = startDate
@@ -254,9 +260,7 @@ class CreateProgramController: UIViewController {
             tempdate = newAnlass.eventDate!
             
         }
-        
         return anlaesse
-        
         
     }
     

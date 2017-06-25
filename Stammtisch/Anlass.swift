@@ -7,11 +7,25 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Anlass {
+class Anlass : Object {
     
-    var eventDate: Date? = nil
-    var restaurant: Restaurant? = nil
-  
+    dynamic var eventDate: Date? = nil
+    dynamic var restaurant: Restaurant? = nil
+    
+    
+    
+    
+    func save() {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(self)
+            }
+        } catch let error as NSError {
+            fatalError(error.localizedDescription)
+        }
+    }
     
 }

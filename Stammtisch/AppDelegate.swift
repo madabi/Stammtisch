@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Stammtisch
 //
-//  Created by Marco Bibrich on 23.06.17.
+//  Created by Marco Bibrich and Lea Boesch on 23.06.17.
 //  Copyright © 2017 Stammtisch. All rights reserved.
 //
 

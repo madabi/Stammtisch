@@ -2,7 +2,7 @@
 //  EventCell.swift
 //  Stammtisch
 //
-//  Created by Marco Bibrich on 24.06.17.
+//  Created by Marco Bibrich and Lea Boesch on 24.06.17.
 //  Copyright © 2017 Stammtisch. All rights reserved.
 //
 
@@ -13,7 +13,6 @@ class EventCell: UITableViewCell {
     @IBOutlet weak var restaurantTitle: UILabel!
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    //@IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var addressLabel: UIButton!
     
 }

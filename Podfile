@@ -5,4 +5,6 @@ target 'Stammtisch' do
     pod 'GooglePlacePicker'
     pod 'GoogleMaps'
     pod 'SwiftyJSON'
+    pod 'RealmSwift'
+    pod 'SwiftyJSONRealmObject'
 end

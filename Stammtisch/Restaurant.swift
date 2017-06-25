@@ -2,24 +2,32 @@
 //  Restaurant.swift
 //  Stammtisch
 //
-//  Created by Lea Boesch on 23.06.17.
+//  Created by Marco Bibrich and Lea Boesch on 23.06.17.
 //  Copyright © 2017 Stammtisch. All rights reserved.
 //
 
 import Foundation
+import RealmSwift
+import SwiftyJSON
 
-class Restaurant {
+
+
+class Restaurant : Object {
+    dynamic var location_lat:Double = 0.0
+    dynamic var location_long:Double = 0.0
+    dynamic var name:String = ""
+    dynamic var formatted_address:String = ""
+
     
-    var name: String? = nil
-    var icon: URL? = nil
-    var id: String? = nil
-    var place_id: String? = nil
-    var formatted_address: String? = nil
-    var rating: Double? = nil
-    var photo_width: Int? = nil
-    var photo_height: Int? = nil
-    var photo_url: String? = nil
-    var location_lat: Double? = nil
-    var location_long: Double? = nil
-    
+    func save() {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(self)
+            }
+        } catch let error as NSError {
+            fatalError(error.localizedDescription)
+        }
+    }
+
 }
