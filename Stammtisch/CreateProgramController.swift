@@ -101,8 +101,9 @@ class CreateProgramController: UIViewController {
     func donePressed(){
         //format date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
+        dateFormatter.locale = Locale(identifier: "de_DE")
+        //dateFormatter.dateStyle = .short
+        dateFormatter.dateFormat = "dd.MM.YYYY HH:mm"
         datePickerText.text = dateFormatter.string(from:datePicker.date)
         self.view.endEditing(true)
     }
@@ -120,7 +121,7 @@ class CreateProgramController: UIViewController {
     
         
         
-        let urlStr =  "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+\(requestCityName.text!)&radius=\(radiusText.text!)000&key=AIzaSyCXtLy-FhROvM7nlqfp0ZCAD_7jzisdQew&sensor=true"
+        let urlStr =  "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+\(replaceUmlaute(cityName: requestCityName.text!))&radius=\(radiusText.text!)000&key=AIzaSyCXtLy-FhROvM7nlqfp0ZCAD_7jzisdQew&sensor=true"
         guard let url = URL(string: urlStr) else {
             print("invalid url")
             print(urlStr)
@@ -153,7 +154,6 @@ class CreateProgramController: UIViewController {
             }
             
             let json = JSON(data:data)
-            // print("Received JSON: %@", json.description)
             print(json["results"][0])
             
             var restaurants = [Restaurant]()
@@ -183,6 +183,7 @@ class CreateProgramController: UIViewController {
                 restaurants.append(resti)
             }
             
+            restaurants.shuffle()
             
             print(restaurants.count)
             for index in 0 ..< restaurants.count {
@@ -272,4 +273,36 @@ class CreateProgramController: UIViewController {
                 ProgramVC.program = self.program
        }
     
+    func replaceUmlaute(cityName: String) -> String{
+        var cleanedCityName = cityName
+        cleanedCityName = cleanedCityName.replace(target: "ü", withString:"ue")
+        cleanedCityName = cleanedCityName.replace(target: "ä", withString:"ae")
+        cleanedCityName = cleanedCityName.replace(target: "ö", withString:"oe")
+        cleanedCityName = cleanedCityName.replace(target: "Ü", withString:"Ue")
+        cleanedCityName = cleanedCityName.replace(target: "Ä", withString:"Ae")
+        cleanedCityName = cleanedCityName.replace(target: "Ö", withString:"Oe")
+        
+        return cleanedCityName
+    }
+    
+}
+
+//ijoshsmith.com/2014/06/17/randomly-shuffle-a-swift-array/
+extension Array {
+        /** Randomizes the order of an array's elements. */
+        mutating func shuffle()
+        {
+            for _ in 0..<10
+            {
+                sort { (_,_) in arc4random() < arc4random() }
+            }
+        }
+}
+//stackoverflow.com/questions/24200888/any-way-to-replace-characters-on-swift-string
+extension String
+{
+    func replace(target: String, withString: String) -> String
+    {
+        return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
+    }
 }

@@ -37,7 +37,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.dayLabel.text = date[0]
         cell.timeLabel.text = date[1]
         cell.restaurantTitle.text = (program.anlaesse?[indexPath.row])?.restaurant?.name ?? ""
-        cell.addressLabel.text = (program.anlaesse?[indexPath.row])?.restaurant?.formatted_address ?? ""
+        cell.addressLabel.text = (program.anlaesse?[indexPath.row])?.restaurant?.formatted_address?.components(separatedBy: ",")[0] ?? ""
 
         return(cell)
     }
@@ -103,7 +103,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let sourceViewController = sender.source as? CreateProgramController
         self.program = (sourceViewController?.program)!
         
-        
+        self.navigationController?.navigationBar.topItem?.title = self.program.groupName;
         self.tableView.reloadData()
         self.updateEditButton()
     }
